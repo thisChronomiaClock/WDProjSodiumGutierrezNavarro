@@ -1,68 +1,335 @@
-@@ -0,0 +1,67 @@
 <!DOCTYPE html>
 <html>
     <head>
         <title>Chimoarg- Homepage</title>
-        <link rel="favicon" type="image/x-icon" href="/gifs/chimoarg.ico">
+        <link rel="icon" type="image/x-icon" href="/media/chimoarg.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                color: rgb(0, 0, 0);
+                margin: 0;
+                background: url('/media/istockphoto-466209183-612x612.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            .box {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                width: 100%;
+                height: 130px;
+                margin: 0;
+                background-color: rgb(101, 174, 241);
+            } 
+            .container {
+                width: 800px;
+                height: auto;
+                margin: 30px auto;
+                text-align: center;
+                border-radius: 8px;
+                background-color:#37869e;
+            }
+            .container3 {
+                width: 800px;
+                height: 390px;
+                margin: 30px auto;
+                text-align: center;
+                border-radius: 8px;
+                background-color: rgb(167, 191, 212);
+            }
+            .container2 {
+                width: 650px;
+                height: 70px;
+                background-color: rgb(230, 238, 237);
+                margin: 30px auto;
+                text-align: center;
+            }
+            .container1 {
+                width: 680px;
+                height: 510px;
+                background-color: rgb(167, 191, 212);
+                margin: 30px auto;
+                text-align: center;
+            }
+            h1, h2, h3 {
+                color: #0c0333;
+                font-family: 'Trebuchet MS', serif;
+            }
+            h1 { color: #006373; }
+            p {
+                color: #0c0333;
+                font-family: 'Trebuchet MS', serif;
+            }
+            .brand {
+                display: flex;
+                align-items: center;
+            }
+            .logo {
+                height: 110px;
+                width: auto;
+                margin-right: 10px;
+                object-fit: contain;
+            }
+            .name {
+                font-size: 64px;
+                font-weight: bold;
+                font-family: 'Trebuchet MS', serif;
+            }
+            .card {
+                width: 1010px;
+                height: 260px;
+                border-radius: 4px;
+                display: flex;
+                gap: 5px;
+                padding: 0.4em;
+            }
+            .card p {
+                height: 90%;
+                flex: 1;
+                overflow: hidden;
+                cursor: pointer;
+                border-radius: 2px;
+                transition: all 0.5s;
+                background: #20809b;
+                border: 1px solid #37869e;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+            .card p:hover {
+                flex: 4;
+            }
+            .card p span {
+                min-width: 14em;
+                padding: 0.5em;
+                text-align: center;
+                transform: rotate(-90deg);
+                transition: all 0.5s;
+                text-transform: uppercase;
+                color: #abdcf8;
+                letter-spacing: 0.1em;
+            }
+            .card p:hover span {
+                transform: rotate(0);
+            }
+
+            #site-footer {
+                background-color: #000;
+                color: #fff;
+                height: 140px;
+                width: 100%;
+                color: #ffffff;
+            }
+            body {
+                padding-bottom: 0px; /* make room for footer */
+            }
+
+            .carousel-viewport {
+                overflow: hidden;
+                width: 100%;
+                max-width: 1100px;   /* show only one card at a time */
+                margin: 0 auto;      /* centers horizontally */
+            }
+
+            .carousel-track {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            justify-content: flex-start; /* start so first card not cut */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            /* hide scrollbars */
+            scrollbar-width: none; /* Firefox */
+            }
+            .carousel-track::-webkit-scrollbar { display: none; }
+
+            .topic-card {
+            min-width: 1100px;
+            max-width: 1100px;
+            flex: 0 0 auto;
+            height: 440px;      /* controls carousel height */
+            flex: 0 0 auto;
+            background-color: #37869e;
+            position: relative;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            }
+            
+            .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 16px;
+            }
+            
+            .topic-card > * {
+            position: relative;
+            z-index: 2;
+            }
+            
+            .topic-card h3,
+            .topic-card p,
+            .topic-card a {
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            font-size: 2em;
+            text-align: center;
+            margin: 10px 0;
+            }
+
+            .topics-carousel {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header {
+                text-align: center;
+                width: 100%;
+            }
+
+            .section-title {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .carousel-controls {
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+        </style>
     </head>
-    <style>
-    body {
-      background-color: rgb(230, 238, 237);
-      color: rgb(0, 0, 0);
-    }
-    .box {
-        width: 1300px;
-        height: 130px;
-        margin: 0;
-        background-color: rgb(101, 174, 241);
-    }
-    .container{
-        width: 450px;
-        height: 170px;
-        background-color: rgb(167, 191, 212);
-        margin: 30px auto;
-        text-align: center;
-    }
-    h1{
-      color: #006373;
-      font-family:'Trebuchet MS', serif;
-    }
-    h2{
-      color: #0c0333;
-      font-family:'Trebuchet MS', serif;
-    }
-    .brand {
-    display: flex;
-    align-items: center; /* vertically center items */
-    }
-    .logo {
-    width: 150px;
-    height: auto;
-    margin-right: 10px; /* space between logo and text */
-    }
-    .name {
-    font-size: 64px;
-    font-weight: bold;
-    font-family:'Trebuchet MS', serif;
-    }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <body>
-        <div class="box">
+        <div class="box" style="display: flex; align-items: center;">
             <div class="brand">
-                <img src="/gifs/chimoarg.gif" alt="Logo" class="logo" width="80" height="80">
-                <span class="name">Chimoarg</span>
+                <img src="/media/CHIMOARG.png" alt="Logo" class="logo">
             </div>
         </div>
 
-        <div class="container">
-            <h2>Welcome!</h2>
-            <br><br>
-            <p>This is Chimoarg: The Chemistry Survival Guide. Have fun browsing through 50+ Chemistry Resources!</p>
+        <div style="width: 100%; height: 500px; display: flex; justify-content: center; align-items: flex-start; padding-top: 30px; box-sizing: border-box;">
+            <div class="container">
+                <h2 style="font-size: 2.5em;">Welcome!</h2>
+                <p style="font-size: 1.5em;">This is Chimoarg: The Chemistry Survival Guide. Have fun browsing through 50+ Chemistry Resources!</p>
+                <br>
+                <br>
+                <p style="font-size: 0.5em;">Disclaimer: we are not responsible for any failing grades incurred by using this website.</p>
+            </div>
         </div>
 
-        <script>
+        <div style="width: 100%; height: 500px; background-color: rgb(136, 168, 196); display: flex; justify-content: center; align-items: flex-start; padding-top: 30px; box-sizing: border-box;">
+            <div class="container3">
+                <h2 style="font-size: 2.5em;">Update log</h2>
+                <p style="font-size: 1.5em;">v. 0.01 beta: 3 articles and 1 practice exercise</p>
+            </div>
+        </div>
 
-        </script>
-    </body>
+        <section class="topics-carousel">
+
+  <header class="section-header">
+    <h2 class="section-title">Topics</h2>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn prev-btn" aria-label="Previous topics"><-</button>
+      <button class="carousel-btn next-btn" aria-label="Next topics">-></button>
+    </div>
+  </header>
+
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+
+      <article class="topic-card" style="background-image: url('/media/periodic-table-concept-elements-illustration-depth-field-chemistry-science-conceptual-illustration-64397797.webp'); background-size: cover; background-position: center;">
+        <h3 class="topic-title">Elements: An Introduction</h3>
+        <p class="topic-desc">Everything needed to start Chemistry.</p>
+        <div class="topic-meta">
+        <span class="lesson-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">★☆☆☆☆</span><br>
+        <span class="quiz-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Easy</span>
+        </div>
+    <a class="topic-link" href="/index/articles/ElementsArticle/ElementsAnIntroduction.html">Start Topic</a>
+      </article>
+      <article class="topic-card" style="background-image: url('/media/istockphoto-466209183-612x612.jpg'); background-size: cover; background-position: center;">
+        <h3 class="topic-title" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Representing Molecules: Names & Diagrams</h3>
+        <p class="topic-desc" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">"Line, Line, Dot, Line, Dot"</p>
+        <div class="topic-meta">
+        <span class="lesson-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">★★★☆☆</span><br>
+        <span class="quiz-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Hard</span>
+        </div>
+    <a class="topic-link" href="/index/articles/RepresentingMoleculesNamesandDiagrams.html">Start Topic</a>
+      </article>
+      <article class="topic-card" style="background-image: url('/media/istockphoto-530573048-612x612.jpg'); background-size: cover; background-position: center;">
+        <h3 class="topic-title" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Molecular Theories: Geometry and Bonding</h3>
+        <p class="topic-desc" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">"I'm in love with the shape of you"</p>
+        <div class="topic-meta">
+        <span class="lesson-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">★★☆☆☆</span><br>
+        <span class="quiz-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Medium</span>
+        </div>
+        <a class="topic-link" href="#">Start Topic</a>
+      </article>
+      <article class="topic-card" style="background-image: url('/media/colorful-chemical-reaction-stockcake.webp'); background-size: cover; background-position: center;">
+        <h3 class="topic-title" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Chemical Reactions</h3>
+        <p class="topic-desc" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">"ITS GOING DOWN"</p>
+        <div class="topic-meta">
+        <span class="lesson-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">★★★★☆</span><br>
+        <span class="quiz-count" style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Insane</span>
+        </div>
+        <a class="topic-link" href="#">Start Topic</a>
+      </article>
+      <article class="topic-card"></article>
+
+    </div>
+  </div>
+
+</section>
+<br>
+<br>
+
+        
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector(".carousel-track");
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            if (!track || !nextBtn || !prevBtn) return;
+
+            const cards = Array.from(track.querySelectorAll(".topic-card"));
+            if (cards.length === 0) return;
+            let currentIndex = 0;
+
+            function updatePosition() {
+                const card = cards[currentIndex];
+                // only horizontal scroll; keep vertical position unchanged
+                card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }
+
+            nextBtn.addEventListener("click", () => {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updatePosition();
+                }
+            });
+
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updatePosition();
+                }
+            });
+        });
+    </script>
+    <footer id="site-footer">© 2025-2026 Chimoarg</footer>
 </html>
