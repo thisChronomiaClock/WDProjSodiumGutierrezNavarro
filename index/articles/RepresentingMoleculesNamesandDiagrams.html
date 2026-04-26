@@ -110,11 +110,15 @@
     .dropbtn {
         background-color: #047baa;
         color: white;
-        padding: 30px;
+        padding: 10px 20px;
         font-size: 16px;
         border: none;
-        width: 300px;
-        height: 130px;
+        min-width: 200px;
+        height: 50px;
+        margin: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
         }
 
     .dropbtn:hover {background-color: #3e538e;}
@@ -187,13 +191,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="box" style="display: flex; justify-content: left;">
+        <div class="box" style="display: flex; justify-content: flex-start; align-items: center; padding: 0 20px;">
             <div class="brand">
-                <img src="../../media/CHIMOARG.png" href="../Chimoarg.html" alt="Logo" class="logo">
+                <a href="../Chimoarg.html">
+                    <img src="../../media/CHIMOARG.png" alt="Logo" class="logo">
+                </a>
             </div>
 
             
-            <button class="dropbtn" onclick="window.location.href='../Chimoarg.html'">Homepage</button>
+            <button class="dropbtn" onclick="window.location.href='../../index.html'">Homepage</button>
+            <button class="dropbtn" onclick="window.location.href='ChemQforum.html'">Forum</button>
             
 
         
@@ -202,10 +209,9 @@
             <button class="dropbtn">More Articles:</button>
                 <div class="dropdown-content">
                 <a href="ElementsArticle/ElementsAnIntroduction.html">Elements and The Periodic Table</a>
-                <a href="RepresentingMoleculesNamesandDiagrams.html">Diagrams and Names</a>
-                <a href="#">Geometry and Bonding Theories</a>
-                <a href="#">Chemical Reactions</a>
-                <a href="#">Stochiometry</a>
+                <a href="MolecularTheoriesGeometryandBonding.html">Geometry and Bonding Theories</a>
+                <a href="ChemicalReactionsArticle/ChemicalReactions.html">Chemical Reactions</a>
+                <a href="Stoichiometry.html">Stoichiometry</a>
                 </div>
             </div>
 
@@ -213,10 +219,10 @@
             <button class="dropbtn">More Practice Exercises:</button>
                 <div class="dropdown-content">
                 <a href="ElementsArticle/ElementsPracticeExercise.html">Elements, The Periodic Table and Trends</a>
-                <a href="#">Respresenting Molecules</a>
+                <a href="#">Representing Molecules</a>
                 <a href="#">Geometry and Bonding Theories</a>
                 <a href="#">Chemical Reactions</a>
-                <a href="#">Stochiometry</a>
+                <a href="#">Stoichiometry</a>
                 </div>
             </div>
         
@@ -230,22 +236,150 @@
     <div class="flex-container">
         <div class="container">
             <div class="container4">
-                <h2>Introduction</h2>
-                <p>Atoms are the building blocks of all matter. But that was just the beginning. In this article, we focus on how atoms combine into bigger units, molecules. We will also cover how we draw and name molecules.</p>
-                <br>
-                <h2>Bonds</h2>
-                <p>Essentially, atoms bond together by electrostatic attraction between their electrons and nuclei. This happens when atoms share or transfer electrons to achieve a stable electron configuration.</p>
-                <p>A stable electron configuration is one where the outermost shell (valence shell) is full. This typically means having 8 electrons in the valence shell.</p>
-                <p>However there are exceptions, which will be covered in another time.</p>
-                <br>
-                <br>
-                <h2>Types of Bonds</h2>
-                <p>There are three main types of bonds: ionic, covalent, and metallic.</p>
-                <br>
-                <h3>-Ionic Bonds</h3>
-                <p>By far the simplest of the three. This happens when electrons are transferred from one atom to another, creating charged ions that attract each other. Usually this happens between a metal and a non-metal.</p>
+                <article>
+
+    <section>
+        <h2>Types of Molecules</h2>
+        <p>Molecules are groups of atoms bonded together. They can be broadly classified into different types based on their composition and bonding:</p>
+        
+        <ul>
+            <li><strong>Elemental Molecules</strong> – Made of only one type of atom (e.g., O₂, N₂).</li>
+            <li><strong>Compound Molecules</strong> – Contain two or more different elements (e.g., H₂O, CO₂).</li>
+            <li><strong>Diatomic Molecules</strong> – Consist of two atoms (e.g., H₂, Cl₂).</li>
+            <li><strong>Polyatomic Molecules</strong> – Contain more than two atoms (e.g., NH₃, CH₄).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Molecular Bonds</h2>
+        <p>Atoms in molecules are held together by chemical bonds. The main types include:</p>
+
+        <h3>Ionic Bonds</h3>
+        <p>Formed when electrons are transferred from one atom to another, creating oppositely charged ions that attract each other (e.g., NaCl).</p>
+
+        <h3>Covalent Bonds</h3>
+        <p>Formed when atoms share electrons. These bonds can be:</p>
+        <ul>
+            <li><strong>Single Bonds</strong> – One shared pair of electrons</li>
+            <li><strong>Double Bonds</strong> – Two shared pairs</li>
+            <li><strong>Triple Bonds</strong> – Three shared pairs</li>
+        </ul>
+
+        <h3>Polar vs Nonpolar Covalent Bonds</h3>
+        <p>
+            Covalent bonds can be polar (unequal sharing of electrons) or nonpolar (equal sharing), depending on the electronegativity of the atoms involved.
+        </p>
+
+        <iframe src="PolaritySim.html" width="100%" height="400px" style="border: none;"></iframe>
+    </section>
+
+    <section>
+        <h2>Representing Molecules with Diagrams</h2>
+
+        <h3>Lewis Structures</h3>
+        <p>
+            Lewis structures are diagrams that show the arrangement of valence electrons in a molecule. They help visualize bonding and lone pairs.
+        </p>
+
+        <h4>Key Features of Lewis Structures:</h4>
+        <ul>
+            <li>Dots represent valence electrons</li>
+            <li>Lines represent shared electron pairs (bonds)</li>
+            <li>Lone pairs are shown as pairs of dots</li>
+        </ul>
+
+        <h4>Example: Water (H₂O)</h4>
+        <pre>
+  ..
+H-O-H
+  ..
+        </pre>
+
+        <p>
+            The oxygen atom has two lone pairs and forms two single bonds with hydrogen atoms.
+        </p>
+
+        <h3>Other Diagram Types</h3>
+        <ul>
+            <li><strong>Structural Formulas</strong> – Show how atoms are connected</li>
+            <li><strong>Ball-and-Stick Models</strong> – 3D representations of molecules</li>
+            <li><strong>Space-Filling Models</strong> – Show relative atom sizes</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Nomenclature: Naming Molecules</h2>
+
+        <h3>Ionic Compounds</h3>
+        <p>
+            Ionic compounds are named based on their ions:
+        </p>
+        <ul>
+            <li>Name the cation (metal) first</li>
+            <li>Name the anion (nonmetal) second, ending in <em>-ide</em></li>
+        </ul>
+
+        <p><strong>Example:</strong> NaCl → Sodium Chloride</p>
+
+        <h4>Transition Metals</h4>
+        <p>
+            Use Roman numerals to indicate the charge:
+        </p>
+        <p><strong>Example:</strong> FeCl₂ → Iron (II) Chloride</p>
+
+        <iframe src="NamingSim.html" width="100%" height="400px" style="border: none;"></iframe>
+
+        <h3>Covalent Compounds</h3>
+        <p>
+            Covalent compounds use prefixes to indicate the number of atoms:
+        </p>
+
+        <ul>
+            <li>Mono- (1)</li>
+            <li>Di- (2)</li>
+            <li>Tri- (3)</li>
+            <li>Tetra- (4)</li>
+            <li>Penta- (5)</li>
+        </ul>
+
+        <p><strong>Example:</strong> CO₂ → Carbon Dioxide</p>
+
+        <p>
+            The first element does not use "mono-" if only one atom is present.
+        </p>
+
+        <h3>Hydrates</h3>
+        <p>
+            Hydrates are compounds that include water molecules. They are named by adding a prefix and the word <em>hydrate</em>.
+        </p>
+
+        <p><strong>Example:</strong> CuSO₄·5H₂O → Copper (II) Sulfate Pentahydrate</p>
+
+        <ul>
+            <li>Mono- (1)</li>
+            <li>Di- (2)</li>
+            <li>Tri- (3)</li>
+            <li>Tetra- (4)</li>
+            <li>Penta- (5)</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>
+            Understanding how molecules are represented through diagrams and names is essential in chemistry. It allows scientists to communicate structure, composition, and behavior clearly and accurately.
+        </p>
+    </footer>
+
+</article>
             </div>
-            <div id="site-footer">© 2025-2026 Chimoarg</div>
+            <div id="site-footer">
+                © 2025-2026 Chimoarg | 
+                <a href="../../index.html" style="color: white; text-decoration: none;">Homepage</a> | 
+                <a href="ChemQforum.html" style="color: white; text-decoration: none;">Forum</a><br>
+                Contact us: 
+                <a href="mailto:b2029agnavarro@pshs.edu.ph">b2029agnavarro@pshs.edu.ph</a> | 
+                <a href="mailto:b2029shsgutierrez@pshs.edu.ph">b2029shsgutierrez@pshs.edu.ph</a>
+            </div>
         </div>
         
     </div>

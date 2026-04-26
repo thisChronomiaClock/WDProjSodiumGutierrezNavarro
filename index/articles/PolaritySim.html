@@ -1,6 +1,458 @@
-<style>
-
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polarity Simulation Molecule Builder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #c7e7f0 0%, #f3f6fb 100%);
+            color: #1c2a35;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+        .page {
+            width: min(100%, 980px);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 18px 45px rgba(28, 42, 53, 0.12);
+            padding: 28px 32px;
+        }
+        h1 {
+            margin: 0 0 12px;
+            font-size: 2.4rem;
+            color: #0c2340;
+        }
+        p.lead {
+            margin: 0 0 24px;
+            line-height: 1.6;
+            color: #334257;
+            max-width: 860px;
+        }
+        .builder {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            margin-bottom: 28px;
+        }
+        .card {
+            background: #f7fafc;
+            border: 1px solid #d8e3eb;
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+        }
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1c2a35;
+        }
+        select, button {
+            width: 100%;
+            font-size: 1rem;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid #a8c3d4;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        select:focus, button:focus {
+            border-color: #3b8aca;
+            box-shadow: 0 0 0 4px rgba(59, 138, 202, 0.12);
+        }
+        button {
+            background: #3b8aca;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            border: none;
+            margin-top: 12px;
+        }
+        button:hover {
+            background: #336fa1;
+        }
+        .result-panel {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+            margin-bottom: 24px;
+        }
+        .result-card {
+            background: #eaf4ff;
+            border: 1px solid #9ec5eb;
+            border-radius: 18px;
+            padding: 18px;
+        }
+        .result-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+            color: #153a5a;
+        }
+        .result-card .status {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #1b3e5f;
+        }
+        .result-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .result-chip {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #cddfe8;
+            font-weight: 700;
+        }
+        .molecule-stage {
+            position: relative;
+            min-height: 210px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, #f6fbff 0%, #e4f1fb 100%);
+            border: 1px solid #bcd8ec;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+        .atoms {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            position: relative;
+            width: 100%;
+            max-width: 760px;
+        }
+        .atom {
+            width: 170px;
+            min-height: 170px;
+            border-radius: 28px;
+            background: #ffffff;
+            border: 1px solid #b6d7e9;
+            box-shadow: 0 16px 32px rgba(0,0,0,0.05);
+            display: grid;
+            place-items: center;
+            padding: 16px;
+            text-align: center;
+        }
+        .symbol {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #0b2d45;
+        }
+        .detail {
+            color: #3f556b;
+            font-size: 0.98rem;
+            line-height: 1.5;
+        }
+        .bond-line {
+            position: relative;
+            width: 160px;
+            height: 10px;
+            background: linear-gradient(90deg, #3b8aca 0%, #98cbee 100%);
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .charge-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 4px;
+            background: #1d4163;
+            border-radius: 999px;
+        }
+        .charge-arrow::before,
+        .charge-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+        }
+        .charge-arrow::before {
+            right: 0;
+            transform: translate(50%, -50%);
+            border-left-color: #1d4163;
+        }
+        .charge-arrow::after {
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-right-color: transparent;
+        }
+        .charge-arrow.left::before {
+            right: auto;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-left-color: transparent;
+            border-right-color: #1d4163;
+        }
+        .charge-arrow.left::after {
+            left: auto;
+            right: 0;
+            transform: translate(50%, -50%);
+            border-right-color: transparent;
+        }
+        .charge-arrow.both::after {
+            left: 0;
+            right: auto;
+            transform: translate(-50%, -50%);
+            border-right-color: #1d4163;
+        }
+        .arrow-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #16384e;
+            font-size: 0.95rem;
+            font-weight: 700;
+            white-space: nowrap;
+            max-width: 180px;
+            text-align: center;
+        }
+        .note {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: #42525f;
+            max-width: 780px;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 24px;
+            font-size: 0.92rem;
+            color: #596b79;
+        }
+        @media (max-width: 720px) {
+            .atoms {
+                flex-direction: column;
+            }
+            .bond-line {
+                width: 80px;
+            }
+            .atom {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
 <body>
-    
+    <div class="page">
+        <h1>Polarity &amp; Bond Type Builder</h1>
+        <p class="lead">Choose two elements from periods 1, 2, and 3 to build a simple molecule. The simulation classifies the bond as ionic, polar covalent, or nonpolar covalent and shows where the negative charge is pulled.</p>
+
+        <div class="builder">
+            <div class="card">
+                <label for="atom1">Atom 1 (left)</label>
+                <select id="atom1"></select>
+            </div>
+            <div class="card">
+                <label for="atom2">Atom 2 (right)</label>
+                <select id="atom2"></select>
+            </div>
+            <div class="card">
+                <label>Actions</label>
+                <button id="buildBtn">Build molecule</button>
+                <button id="resetBtn" style="margin-top: 8px; background: #5b6f81;">Reset</button>
+            </div>
+        </div>
+
+        <div class="result-panel">
+            <div class="result-card">
+                <h2>Current outcome</h2>
+                <p class="status" id="outcomeText">Select two atoms and click "Build molecule".</p>
+                <div class="result-row" id="resultChips"></div>
+            </div>
+        </div>
+
+        <div class="molecule-stage">
+            <div class="atoms">
+                <div class="atom" id="displayAtom1">
+                    <div class="symbol" id="displaySymbol1">?</div>
+                    <div class="detail" id="displayDetail1">Atom 1</div>
+                </div>
+                <div class="bond-line" id="bondLine">
+                    <div class="charge-arrow" id="chargeArrow"></div>
+                    <div class="arrow-label" id="arrowLabel"></div>
+                </div>
+                <div class="atom" id="displayAtom2">
+                    <div class="symbol" id="displaySymbol2">?</div>
+                    <div class="detail" id="displayDetail2">Atom 2</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="note">Use the arrow to see where the electron density is drawn. For a covalent bond, the negative region is pulled toward the more electronegative atom. For an ionic bond, the arrow points to the anion where the negative charge settles.</p>
+        <p class="footer">This builder uses elements from the first three periods. Noble gases are included as a reminder that they usually do not form stable molecules in this type of simulation.</p>
+    </div>
+
+    <script>
+        const elements = [
+            { symbol: 'H', name: 'Hydrogen', period: 1, type: 'nonmetal', en: 2.20 },
+            { symbol: 'He', name: 'Helium', period: 1, type: 'noble gas', en: 0 },
+            { symbol: 'Li', name: 'Lithium', period: 2, type: 'metal', en: 0.98 },
+            { symbol: 'Be', name: 'Beryllium', period: 2, type: 'metal', en: 1.57 },
+            { symbol: 'B', name: 'Boron', period: 2, type: 'metalloid', en: 2.04 },
+            { symbol: 'C', name: 'Carbon', period: 2, type: 'nonmetal', en: 2.55 },
+            { symbol: 'N', name: 'Nitrogen', period: 2, type: 'nonmetal', en: 3.04 },
+            { symbol: 'O', name: 'Oxygen', period: 2, type: 'nonmetal', en: 3.44 },
+            { symbol: 'F', name: 'Fluorine', period: 2, type: 'nonmetal', en: 3.98 },
+            { symbol: 'Ne', name: 'Neon', period: 2, type: 'noble gas', en: 0 },
+            { symbol: 'Na', name: 'Sodium', period: 3, type: 'metal', en: 0.93 },
+            { symbol: 'Mg', name: 'Magnesium', period: 3, type: 'metal', en: 1.31 },
+            { symbol: 'Al', name: 'Aluminum', period: 3, type: 'metal', en: 1.61 },
+            { symbol: 'Si', name: 'Silicon', period: 3, type: 'metalloid', en: 1.90 },
+            { symbol: 'P', name: 'Phosphorus', period: 3, type: 'nonmetal', en: 2.19 },
+            { symbol: 'S', name: 'Sulfur', period: 3, type: 'nonmetal', en: 2.58 },
+            { symbol: 'Cl', name: 'Chlorine', period: 3, type: 'nonmetal', en: 3.16 },
+            { symbol: 'Ar', name: 'Argon', period: 3, type: 'noble gas', en: 0 }
+        ];
+
+        const atom1Select = document.getElementById('atom1');
+        const atom2Select = document.getElementById('atom2');
+        const displaySymbol1 = document.getElementById('displaySymbol1');
+        const displaySymbol2 = document.getElementById('displaySymbol2');
+        const displayDetail1 = document.getElementById('displayDetail1');
+        const displayDetail2 = document.getElementById('displayDetail2');
+        const outcomeText = document.getElementById('outcomeText');
+        const resultChips = document.getElementById('resultChips');
+        const chargeArrow = document.getElementById('chargeArrow');
+        const arrowLabel = document.getElementById('arrowLabel');
+        const buildBtn = document.getElementById('buildBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        function populateSelect(select) {
+            select.innerHTML = elements.map(el => {
+                return `<option value="${el.symbol}">${el.symbol} - ${el.name} (${el.type})</option>`;
+            }).join('');
+        }
+
+        function findElement(symbol) {
+            return elements.find(el => el.symbol === symbol);
+        }
+
+        function resetDisplay() {
+            displaySymbol1.textContent = '?';
+            displaySymbol2.textContent = '?';
+            displayDetail1.textContent = 'Atom 1';
+            displayDetail2.textContent = 'Atom 2';
+            outcomeText.textContent = 'Select two atoms and click "Build molecule".';
+            resultChips.innerHTML = '';
+            chargeArrow.className = 'charge-arrow';
+            arrowLabel.textContent = '';
+            const existingExtra = document.querySelector('.result-extra');
+            if (existingExtra) {
+                existingExtra.remove();
+            }
+        }
+
+        function getBondType(a, b) {
+            if (a.type === 'noble gas' || b.type === 'noble gas') {
+                return { category: 'No molecule', description: 'Noble gases do not usually form stable diatomic molecules in this builder.' };
+            }
+
+            const delta = Math.abs(a.en - b.en);
+            let category = '';
+            let description = '';
+
+            if (delta >= 1.7) {
+                category = 'Polar Ionic';
+                description = 'A large electronegativity difference means electrons transfer and the negative charge is concentrated on the more electronegative atom.';
+            } else if (delta >= 0.4) {
+                category = 'Covalent Polar';
+                description = 'Electrons are shared unevenly, drawing negative charge toward the more electronegative atom.';
+            } else {
+                category = 'Covalent Nonpolar';
+                description = 'Electrons are shared evenly, and negative charge is distributed evenly between both atoms.';
+            }
+
+            return { category, description, delta: delta.toFixed(2) };
+        }
+
+        function DOMPurify(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function buildMolecule() {
+            const atom1 = findElement(atom1Select.value);
+            const atom2 = findElement(atom2Select.value);
+
+            displaySymbol1.textContent = atom1.symbol;
+            displaySymbol2.textContent = atom2.symbol;
+            displayDetail1.textContent = `${atom1.name} · EN ${atom1.en || '—'} · ${atom1.type}`;
+            displayDetail2.textContent = `${atom2.name} · EN ${atom2.en || '—'} · ${atom2.type}`;
+
+            const bond = getBondType(atom1, atom2);
+            outcomeText.textContent = `${atom1.symbol} + ${atom2.symbol} = ${bond.category}`;
+            resultChips.innerHTML = '';
+
+            const chips = [];
+            chips.push(`<span class="result-chip">Bond: ${DOMPurify(bond.category)}</span>`);
+            if (bond.delta !== undefined) {
+                chips.push(`<span class="result-chip">ΔEN = ${DOMPurify(bond.delta)}</span>`);
+            }
+            chips.push(`<span class="result-chip">${DOMPurify(atom1.type)} + ${DOMPurify(atom2.type)}</span>`);
+
+            resultChips.innerHTML = chips.join('');
+
+            if (bond.category === 'No molecule') {
+                chargeArrow.className = 'charge-arrow';
+                arrowLabel.textContent = bond.description;
+                return;
+            }
+
+            if (atom1.en === atom2.en) {
+                chargeArrow.className = 'charge-arrow both';
+                arrowLabel.textContent = 'Electron density is shared evenly.';
+            } else {
+                const negativeSide = atom1.en > atom2.en ? 1 : 2;
+                const directionClass = negativeSide === 1 ? 'left' : '';
+                chargeArrow.className = `charge-arrow ${directionClass}`;
+                const negativeAtom = negativeSide === 1 ? atom1.symbol : atom2.symbol;
+                arrowLabel.textContent = `Negative charge pulled toward ${negativeAtom}`;
+            }
+
+            const detailText = `${bond.description}`;
+            const extra = document.createElement('p');
+            extra.textContent = detailText;
+            extra.style.marginTop = '12px';
+            extra.style.color = '#1a394f';
+            extra.style.fontSize = '0.97rem';
+            const existingExtra = document.querySelector('.result-extra');
+            if (existingExtra) {
+                existingExtra.remove();
+            }
+            const extraWrap = document.createElement('div');
+            extraWrap.className = 'result-extra';
+            extraWrap.appendChild(extra);
+            resultChips.parentElement.after(extraWrap);
+        }
+
+        populateSelect(atom1Select);
+        populateSelect(atom2Select);
+        resetDisplay();
+
+        buildBtn.addEventListener('click', buildMolecule);
+        resetBtn.addEventListener('click', () => {
+            atom1Select.selectedIndex = 0;
+            atom2Select.selectedIndex = 1;
+            resetDisplay();
+        });
+    </script>
 </body>
+</html>

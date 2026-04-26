@@ -107,11 +107,15 @@
     .dropbtn {
         background-color: #047baa;
         color: white;
-        padding: 30px;
+        padding: 10px 20px;
         font-size: 16px;
         border: none;
-        width: 300px;
-        height: 130px;
+        min-width: 200px;
+        height: 50px;
+        margin: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
         }
 
     .dropbtn:hover {background-color: #3e538e;}
@@ -184,13 +188,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="box" style="display: flex; justify-content: left;">
+        <div class="box" style="display: flex; justify-content: flex-start; align-items: center; padding: 0 20px;">
             <div class="brand">
-                <img src="../../../media/CHIMOARG.png" href="../Chimoarg.html" alt="Logo" class="logo">
+                <a href="../../Chimoarg.html">
+                    <img src="../../../media/CHIMOARG.png" alt="Logo" class="logo">
+                </a>
             </div>
 
             
-            <button class="dropbtn" onclick="window.location.href='../Chimoarg.html'">Homepage</button>
+            <button class="dropbtn" onclick="window.location.href='../../../index.html'">Homepage</button>
+            <button class="dropbtn" onclick="window.location.href='../ChemQforum.html'">Forum</button>
             
 
         
@@ -198,11 +205,10 @@
             <div class="dropdown">
             <button class="dropbtn">More Articles:</button>
                 <div class="dropdown-content">
-                <a href="ElementsAnIntroduction.html">Elements and The Periodic Table</a>
                 <a href="../RepresentingMoleculesNamesandDiagrams.html">Diagrams and Names</a>
-                <a href="#">Geometry and Bonding Theories</a>
-                <a href="#">Chemical Reactions</a>
-                <a href="#">Stochiometry</a>
+                <a href="../MolecularTheoriesGeometryandBonding.html">Geometry and Bonding Theories</a>
+                <a href="../ChemicalReactionsArticle/ChemicalReactions.html">Chemical Reactions</a>
+                <a href="../Stoichiometry.html">Stoichiometry</a>
                 </div>
             </div>
 
@@ -210,10 +216,10 @@
             <button class="dropbtn">More Practice Exercises:</button>
                 <div class="dropdown-content">
                 <a href="ElementsPracticeExercise.html">Elements, The Periodic Table and Trends</a>
-                <a href="#">Respresenting Molecules</a>
+                <a href="#">Representing Molecules</a>
                 <a href="#">Geometry and Bonding Theories</a>
                 <a href="#">Chemical Reactions</a>
-                <a href="#">Stochiometry</a>
+                <a href="#">Stoichiometry</a>
                 </div>
             </div>
         
@@ -316,14 +322,20 @@
                 <br>
                 <br>
                 <div class="button-row">
-                <a href="../Chimoarg.html" class="round-btn">Back to Homepage</a>
                 <a href="ElementsPracticeExercise.html" class="round-btn">Take the Quiz</a>
                 </div>
                 <br>
                 <br>
             </p>
             </div>
-            <div id="site-footer">© 2025-2026 Chimoarg</div>
+            <div id="site-footer">
+                © 2025-2026 Chimoarg | 
+                <a href="../../../index.html" style="color: white; text-decoration: none;">Homepage</a> | 
+                <a href="../ChemQforum.html" style="color: white; text-decoration: none;">Forum</a><br>
+                Contact us: 
+                <a href="mailto:b2029agnavarro@pshs.edu.ph">b2029agnavarro@pshs.edu.ph</a> | 
+                <a href="mailto:b2029shsgutierrez@pshs.edu.ph">b2029shsgutierrez@pshs.edu.ph</a>
+            </div>
         </div>
         
     </div>

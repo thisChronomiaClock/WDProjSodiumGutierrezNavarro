@@ -1,6 +1,316 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic Nomenclature Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-</style>
+        body {
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #006373;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #0c0333;
+            font-size: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 2px solid #047baa;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        select:hover {
+            border-color: #3e538e;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #3e538e;
+            background-color: white;
+        }
+
+        .result-box {
+            background-color: rgba(101, 174, 241, 0.1);
+            border: 2px solid #047baa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .formula {
+            font-size: 24px;
+            font-weight: bold;
+            color: #006373;
+            margin-bottom: 12px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .compound-name {
+            font-size: 20px;
+            color: #0c0333;
+            margin-bottom: 12px;
+        }
+
+        .charge-info {
+            font-size: 14px;
+            color: #555;
+            margin-top: 12px;
+        }
+
+        .ion-info {
+            font-size: 12px;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #047baa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #3e538e;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
 <body>
-    
+    <div class="container">
+        <h1>⚛️ Ionic Nomenclature Simulator</h1>
+
+        <div class="section">
+            <label for="cation">Select a Cation:</label>
+            <select id="cation">
+                <option value="">-- Choose a Cation --</option>
+                <optgroup label="Group 1 (Alkali Metals)">
+                    <option value="Li+">Lithium (Li⁺)</option>
+                    <option value="Na+">Sodium (Na⁺)</option>
+                    <option value="K+">Potassium (K⁺)</option>
+                </optgroup>
+                <optgroup label="Group 2 (Alkaline Earth Metals)">
+                    <option value="Mg2+">Magnesium (Mg²⁺)</option>
+                    <option value="Ca2+">Calcium (Ca²⁺)</option>
+                    <option value="Ba2+">Barium (Ba²⁺)</option>
+                </optgroup>
+                <optgroup label="Other Metals">
+                    <option value="Al3+">Aluminum (Al³⁺)</option>
+                    <option value="Fe2+">Iron(II) (Fe²⁺)</option>
+                    <option value="Fe3+">Iron(III) (Fe³⁺)</option>
+                    <option value="Cu+">Copper(I) (Cu⁺)</option>
+                    <option value="Cu2+">Copper(II) (Cu²⁺)</option>
+                    <option value="Zn2+">Zinc (Zn²⁺)</option>
+                </optgroup>
+                <optgroup label="Polyatomic Cations">
+                    <option value="NH4+">Ammonium (NH₄⁺)</option>
+                    <option value="H+">Hydrogen (H⁺)</option>
+                </optgroup>
+            </select>
+            <div class="info-text">The positively charged ion</div>
+        </div>
+
+        <div class="section">
+            <label for="anion">Select an Anion:</label>
+            <select id="anion">
+                <option value="">-- Choose an Anion --</option>
+                <optgroup label="Halides">
+                    <option value="F-">Fluoride (F⁻)</option>
+                    <option value="Cl-">Chloride (Cl⁻)</option>
+                    <option value="Br-">Bromide (Br⁻)</option>
+                    <option value="I-">Iodide (I⁻)</option>
+                </optgroup>
+                <optgroup label="Oxygen-containing Anions">
+                    <option value="O2-">Oxide (O²⁻)</option>
+                    <option value="OH-">Hydroxide (OH⁻)</option>
+                    <option value="NO3-">Nitrate (NO₃⁻)</option>
+                    <option value="NO2-">Nitrite (NO₂⁻)</option>
+                    <option value="SO4 2-">Sulfate (SO₄²⁻)</option>
+                    <option value="SO3 2-">Sulfite (SO₃²⁻)</option>
+                    <option value="CO3 2-">Carbonate (CO₃²⁻)</option>
+                    <option value="PO4 3-">Phosphate (PO₄³⁻)</option>
+                    <option value="ClO3-">Chlorate (ClO₃⁻)</option>
+                </optgroup>
+            </select>
+            <div class="info-text">The negatively charged ion</div>
+        </div>
+
+        <button onclick="generateCompound()">Generate Ionic Compound</button>
+
+        <div id="result" style="display: none;">
+            <div class="result-box">
+                <div class="charge-info" id="chargeInfo"></div>
+                <div class="formula" id="formula"></div>
+                <div class="compound-name" id="compoundName"></div>
+                <div class="ion-info" id="ionInfo"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const anionNames = {
+            "F-": { name: "fluoride", prefix: "" },
+            "Cl-": { name: "chloride", prefix: "" },
+            "Br-": { name: "bromide", prefix: "" },
+            "I-": { name: "iodide", prefix: "" },
+            "O2-": { name: "oxide", prefix: "" },
+            "OH-": { name: "hydroxide", prefix: "" },
+            "NO3-": { name: "nitrate", prefix: "" },
+            "NO2-": { name: "nitrite", prefix: "" },
+            "SO4 2-": { name: "sulfate", prefix: "" },
+            "SO3 2-": { name: "sulfite", prefix: "" },
+            "CO3 2-": { name: "carbonate", prefix: "" },
+            "PO4 3-": { name: "phosphate", prefix: "" },
+            "ClO3-": { name: "chlorate", prefix: "" }
+        };
+
+        const cationNames = {
+            "Li+": "Lithium",
+            "Na+": "Sodium",
+            "K+": "Potassium",
+            "Mg2+": "Magnesium",
+            "Ca2+": "Calcium",
+            "Ba2+": "Barium",
+            "Al3+": "Aluminum",
+            "Fe2+": "Iron(II)",
+            "Fe3+": "Iron(III)",
+            "Cu+": "Copper(I)",
+            "Cu2+": "Copper(II)",
+            "Zn2+": "Zinc",
+            "NH4+": "Ammonium",
+            "H+": "Hydrogen"
+        };
+
+        function getCharge(ion) {
+            const match = ion.match(/([0-9])\+|([0-9])\-/);
+            if (match) {
+                if (match[1]) return parseInt(match[1]); // positive charge
+                if (match[2]) return -parseInt(match[2]); // negative charge
+            }
+            return 0;
+        }
+
+        function getFormula(cation, anion) {
+            const cationCharge = Math.abs(getCharge(cation));
+            const anionCharge = Math.abs(getCharge(anion));
+
+            // Find GCD to simplify ratio
+            const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+            const factor = gcd(cationCharge, anionCharge);
+
+            const cationCount = anionCharge / factor;
+            const anionCount = cationCharge / factor;
+
+            // Extract the element/compound from the ion formula
+            const cationFormula = cation.replace(/[\+0-9]/g, "");
+            const anionFormula = anion.replace(/[\-0-9]/g, "").trim();
+
+            let formula = cationFormula;
+            if (cationCount > 1) formula += cationCount;
+
+            formula += anionFormula;
+            if (anionCount > 1) formula += anionCount;
+
+            return { formula, cationCount, anionCount };
+        }
+
+        function generateCompound() {
+            const cationSelect = document.getElementById("cation");
+            const anionSelect = document.getElementById("anion");
+
+            const cation = cationSelect.value;
+            const anion = anionSelect.value;
+
+            if (!cation || !anion) {
+                alert("Please select both a cation and an anion!");
+                return;
+            }
+
+            const { formula, cationCount, anionCount } = getFormula(cation, anion);
+            const cationName = cationNames[cation];
+            const anionData = anionNames[anion];
+            const anionName = anionData.name;
+
+            let compoundName = cationName;
+            if (anionCount > 1) {
+                compoundName += " " + anionName;
+            } else {
+                compoundName += " " + anionName;
+            }
+
+            const cationCharge = getCharge(cation);
+            const anionCharge = getCharge(anion);
+
+            document.getElementById("chargeInfo").innerHTML = 
+                `Charges: ${cation} (${cationCharge > 0 ? '+' : ''}${cationCharge}) and ${anion} (${anionCharge})`;
+
+            document.getElementById("formula").innerHTML = formula;
+            document.getElementById("compoundName").innerHTML = compoundName;
+
+            document.getElementById("ionInfo").innerHTML = 
+                `Ratio: ${cationCount} cation(s) to ${anionCount} anion(s)`;
+
+            document.getElementById("result").style.display = "block";
+        }
+
+        // Allow pressing Enter to generate
+        document.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                generateCompound();
+            }
+        });
+    </script>
 </body>
+</html>
