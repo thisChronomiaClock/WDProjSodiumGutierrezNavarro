@@ -2,88 +2,373 @@
 <html>
     <head>
         <title>Chimoarg- Chemical Reactions</title>
-        <link rel="icon" type="image/x-icon" href="/gifs/chimoarg.ico">
+        <link rel="icon" type="image/x-icon" href="../../../media/chimoarg.ico">
     <style>
     body {
-      background-color: rgb(230, 238, 237);
-      color: rgb(0, 0, 0);
-    }
+      margin: 0;
+        padding: 130px 0 0 0; 
+        background-color: rgb(230, 238, 237);
+        color: rgb(0, 0, 0);
+
+        min-height: 100vh; 
+        background-image: linear-gradient(rgba(214, 214, 214, 0.8),rgba(214, 214, 214, 0.8)), url('../../../media/istockphoto-466209183-612x612.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        }
     .box {
-        width: 2000px;
+        width: 100vw;
         height: 130px;
         margin: 0;
+        padding: 0;
         background-color: rgb(101, 174, 241);
-    } 
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        }
     .container{
-        width: 650px;
+        
+        width: 100%;
+        font-size: 25px;
+        }
+    .container4{
+        
+        width: 90%;
+        margin: 113px auto;
+        font-size: 25px;
+        background-color: rgba(255, 255, 255, 0.75);
+        padding: 30px;
+        border-radius: 16px;
+        }
+    .container3{
+        width: 500px;
         height: 170px;
-        background-color: rgb(136, 168, 196);
-        margin: 30px auto;
+        
         text-align: center;
-    }
+        font-size: 20px;
+        margin: 100px;
+        }
     .container2{
         width: 650px;
         height: 70px;
         background-color: rgb(230, 238, 237);
-        margin: 30px auto;
+        margin: 0 auto;
         text-align: center;
         text-size-adjust: auto;
-    }
+        }
     .container1{
         width: 680px;
         height: 510px;
         background-color: rgb(167, 191, 212);
-        margin: 30px auto;
+        margin: 0 auto;
         text-align: center;
-    }
+        }
     h1{
         color: #006373;
         font-family:'Trebuchet MS', serif;
-    }
+        }
     h2{
       color: #0c0333;
       font-family:'Trebuchet MS', serif;
     }
+    h3{
+      color: #0c0333;
+      font-family:'Trebuchet MS', serif;
+        }
+    h4{
+      color: #0c0333;
+      font-family:'Trebuchet MS', serif;
+        }
+    li{
+      color: #0c0333;
+      font-family:'Trebuchet MS', serif;
+        }
     p{
       color: #0c0333;
       font-family:'Trebuchet MS', serif;
-    }
+        }
     .brand {
         display: flex;
-    align-items: center; /* vertically center items */
-    }
+        align-items: center;
+        padding: 30px;
+        }
+    .title{
+        text-align: center;
+        font-size: 40px;
+        font-family:'Trebuchet MS', serif;
+        }
     .logo {
-    width: 150px;
+    width: 110px;
     height: auto;
-    margin-right: 10px; /* space between logo and text */
-    }
+    margin-right: 10px;
+        }
     .name {
     font-size: 64px;
     font-weight: bold;
     font-family:'Trebuchet MS', serif;
+        }
+    .flex-container {
+    display: flex;
+    flex-direction: column;
+    
+
+    
+        }
+    .dropbtn {
+        background-color: #047baa;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        min-width: 200px;
+        height: 50px;
+        margin: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        }
+
+    .dropbtn:hover {background-color: #3e538e;}
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+        }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 400px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+        }
+
+    .dropdown-content a {
+    color: black;
+    padding: 30px 16px;
+    text-decoration: none;
+    display: block;
+        }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: #3e538e;}
+
+    #site-footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        
+        width: 100%;        
+        margin-top: 40px;   
+        margin-bottom: 0px;
     }
+    .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+    margin-top: 30px;
+}
+
+.round-btn {
+    background-color: #047baa;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    border-radius: 999px; /* fully rounded */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.round-btn:hover {
+    background-color: #3e538e;
+    transform: translateY(-2px);
+}
     </style>
-        </style>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD:index/articles/ElementsAnIntroduction.html
     </head>
     <body>
-        <div class="box" style="display: flex; height: 130px;">
+        <div class="box" style="display: flex; justify-content: flex-start; align-items: center; padding: 0 20px;">
             <div class="brand">
-                <img src="/media/chimoarg.gif" alt="Logo" class="logo" width="80" height="80">
-                <span class="name">Chimoarg</span>
+                <a href="../../../index.html">
+                    <img src="../../../media/CHIMOARG.png" alt="Logo" class="logo">
+                </a>
+            </div>
+
+            
+            <button class="dropbtn" onclick="window.location.href='../../../index.html'">Homepage</button>
+            <button class="dropbtn" onclick="window.location.href='../ChemQforum.html'">Forum</button>
+            
+
+        
+        
+            <div class="dropdown">
+            <button class="dropbtn">More Articles:</button>
+                <div class="dropdown-content">
+                <a href="../ElementsArticle/ElementsAnIntroduction.html">Elements and The Periodic Table</a>
+                <a href="../RepresentingMoleculesNamesandDiagrams.html">Diagrams and Names</a>
+                <a href="../MolecularTheoriesGeometryandBonding.html">Geometry and Bonding Theories</a>
+                <a href="../Stoichiometry.html">Stoichiometry</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+            <button class="dropbtn">More Practice Exercises:</button>
+                <div class="dropdown-content">
+                <a href="../ElementsArticle/ElementsPracticeExercise.html">Elements, The Periodic Table and Trends</a>
+                <a href="#">Representing Molecules</a>
+                <a href="#">Geometry and Bonding Theories</a>
+                <a href="#">Chemical Reactions</a>
+                <a href="#">Stoichiometry</a>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="title">
+        <h1>Chemical Reactions</h1>
+        </div>
+    
+
+    <div class="flex-container">
+        <div class="container">
+            <div class="container4">
+                <article>
+
+                    <section>
+                        <p>When you mix a bunch of things, you get a mixture. But sometimes, the properties of those things 'resonate' and interact with each other in a way that produces a new thing, or break things into new things. That is a chemical reaction. And they come in different structures and mechanisms.</p>
+
+<h2>Chemical Reactions: When things produce new things</h2>
+
+<p>A chemical reaction is a process where chemicals interact to form new chemicals with different compositions. The way the chemicals react is based on their properties. Usually we represent chemical reactions with chemical equations. We use an arrow to represent change:</p>
+
+<p>A(aq) + B(g) -> C(s) + D(l)</p>
+
+<p>The chemicals at the left of the arrow are called reactants. The stuff being chemically changed. The chemicals to the right of the arrow are our products. Basically the byproducts of our reactants mixing. The letters enclosed in parentheses tell you its state of matter. S for solid, L for liquid, G for gas, and AQ for aqueous.</p>
+
+<p>An accurate chemical equation is usually written correctly and balanced. Meaning:</p>
+
+<ul>
+<li>Chemicals are written with its chemical formula, and</li>
+<li>the number of atoms of each element must be the same for both sides. This can be done by writing coefficients on the front of each chemical to match the number of atoms of each element on both sides.</li>
+</ul>
+
+<p>An example is:</p>
+
+<p>2H2 + O2 -> 2H2O</p>
+
+<p>Notice how both sides of the equation have the same number of Hydrogen atoms (4) and Oxygen atoms (2).</p>
+
+<h3>Balancing Chemical equations</h3>
+
+<p>Now we show an example of getting a balanced chemical equation.</p>
+
+<p>Ex. H2 + N2 -> NH3</p>
+
+<p>We count the atoms of each element on each side:</p>
+
+<p>2H 2N -> 3H 1N</p>
+
+<p>Because there's one N atom on the product side and two on the reactant, we can even it out by putting a coefficient of 2 on NH3:</p>
+
+<p>H2 + N2 -> 2NH3</p>
+
+<p>Now there's:</p>
+
+<p>2H 2N -> 6H 2N</p>
+
+<p>Almost there! We can balance the electrons by putting a coefficient of 3 on H2. Because 3 * 2 = 6, therefore:</p>
+
+<p>3H2 + N2 -> 2NH3</p>
+
+<p>6H 2N -> 6H 2N</p>
+
+<p>We have a balanced equation!</p>
+
+<p>Chemical equations come in handy when we deal with HOW MUCH of a chemical has reacted or is needed to react. This branch of Chemistry is called Stoichiometry and will be introduced in the next article.</p>
+
+<h2>Types of Chemical Reactions</h2>
+
+<p>There are 5 main types of chemical reactions.</p>
+
+<h3>Synthesis</h3>
+
+<p>This is when two or more chemicals react together to form one new product. This is usually in the form of:</p>
+
+<p>A + B -> AB</p>
+
+<h3>Decomposition</h3>
+
+<p>This is when one chemical 'dissolves' into multiple products and is in the form of:</p>
+
+<p>AB -> A + B</p>
+
+<h3>Single Replacement</h3>
+
+<p>Say you have two chemicals. One of them is composed of a single atom (or multiple of the same element but it depends), and the other is a molecule made of 2 elements. The diatomic molecule will 'transfer' one of its ions to the single atom chemical Usually it will look like:</p>
+
+<p>AB + C -> AC + B</p>
+
+<h3>Double Replacement</h3>
+
+<p>Imagine 2 molecules each composed of an anion and a cation. The molecules will 'exchange' cations or anions.</p>
+
+<p>AB + CD -> AC + BD or AD + BC</p>
+
+<h3>Combustion</h3>
+
+<p>This is a special type of reaction. A substance reacts with O2, and produces energy in the form of light and heat. One of the products is H2O in the gaseous state, or vapor. A usual combustion reaction occurs with a hydrocarbon, a molecule made of only C and H atoms. In that case, the products are always carbon dioxide and water vapor.</p>
+
+<p>There are special cases though, but we won't go too in detail.</p>
+
+<h3>Precipitation</h3>
+
+<p>This is a special type of reaction that produces an insoluble solid, known as the precipitate.</p>
+
+<h3>Acid Base/ Neutralization</h3>
+
+<p>This is a reaction when an acid and a base mix together. What an acid and base is won't be discussed now. All that you need to know is that the products are an ionic compound and water</p>
+
+<h3>Redox Reaction</h3>
+
+<p>This reaction involves the transfer of electrons, changing the oxidation numbers (or simply charge) of molecules and atoms.</p>
+
+<p>When you model a chemical reaction with a chemical reaction, you will see how each molecule behaves, and this is important especially in manufacturing and other jobs that involve some chemical reactions in some way. Overall, chemical reactions are the ways to interact with a chemical, and keep the chemical domain moving.</p>
+
+
+        
+                    </section>
+                </article>
+                <div class = "container4">
+                    <h3>References:</h3>
+                    <p>Libretexts. (2020, August 11). 5.3: Types of chemical reactions. Chemistry LibreTexts. https://chem.libretexts.org/Courses/Valley_City_State_University/Chem_121/Chapter_5%3A_Introduction_to_Redox_Chemistry/5.3%3A_Types_of_Chemical_Reactions</p>
+                    <p>Libretexts. (2023, June 30). Chemical reactions overview. Chemistry LibreTexts. https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry/Supplemental_Modules_and_Websites_(Inorganic_Chemistry)/Chemical_Reactions/Chemical_Reactions_Examples/Chemical_Reactions_Overview</p>
+                </div>
+            </div>
+            <div id="site-footer">
+                © 2025-2026 Chimoarg | 
+                <a href="../../index.html" style="color: white; text-decoration: none;">Homepage</a> | 
+                <a href=\"../ChemQforum.html\" style=\"color: white; text-decoration: none;\">Forum</a><br>
+                Contact us: 
+                <a href="mailto:b2029agnavarro@pshs.edu.ph">b2029agnavarro@pshs.edu.ph</a> | 
+                <a href="mailto:b2029shsgutierrez@pshs.edu.ph">b2029shsgutierrez@pshs.edu.ph</a>
             </div>
         </div>
-        <div class="container">
-            <h1>Elements: An Introduction</h1>
-        </div>
-
-        <p>The periodic table, also known as the periodic table of the elements, is an ordered arrangement of the chemical elements into rows ("periods") and columns ("groups"). An icon of chemistry, the periodic table is widely used in physics and other sciences. It is a depiction of the periodic law, which states that when the elements are arranged in order of their atomic numbers an approximate recurrence of their properties is evident. The table is divided into four roughly rectangular areas called blocks. Elements in the same group tend to show similar chemical characteristics.
-
-Vertical, horizontal and diagonal trends characterize the periodic table. Metallic character increases going down a group and from right to left across a period. Nonmetallic character increases going from the bottom left of the periodic table to the top right.
-
-The first periodic table to become generally accepted was that of the Russian chemist Dmitri Mendeleev in 1869; he formulated the periodic law as a dependence of chemical properties on atomic mass. As not all elements were then known, there were gaps in his periodic table, and Mendeleev successfully used the periodic law to predict some properties of some of the missing elements. The periodic law was recognized as a fundamental discovery in the late 19th century. It was explained early in the 20th century, with the discovery of atomic numbers and associated pioneering work in quantum mechanics, both ideas serving to illuminate the internal structure of the atom. A recognisably modern form of the table was reached in 1945 with Glenn T. Seaborg's discovery that the actinides were in fact f-block rather than d-block elements. The periodic table and law have become a central and indispensable part of modern chemistry.</p>
+        
+    </div>
+    
+    
     </body>
-=======
-    </head>
->>>>>>> fc129392d041a802d08e11d327cabfb117482afd:index/articles/ChemicalReactionsArticle/ChemicalReactions.html
+</html>
+
