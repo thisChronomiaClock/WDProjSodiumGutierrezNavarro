@@ -5,23 +5,42 @@
         <link rel="icon" type="image/x-icon" href="../../media/chimoarg.ico">
     <style>
     body {
-      background-color: rgb(230, 238, 237);
-      color: rgb(0, 0, 0);
-    }
+      margin: 0;
+        padding: 130px 0 0 0; 
+        background-color: rgb(230, 238, 237);
+        color: rgb(0, 0, 0);
+
+        min-height: 100vh; 
+        background-image: linear-gradient(rgba(214, 214, 214, 0.8),rgba(214, 214, 214, 0.8)), url('../../media/istockphoto-466209183-612x612.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        }
     .box {
-        width: 100%;
+        width: 100vw;
         height: 130px;
         margin: 0;
+        padding: 0;
         background-color: rgb(101, 174, 241);
-    }
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        }
     .container{
-        width: 2500px;
-        height: 170px;
         
-        text-align: left;
+        width: 100%;
         font-size: 25px;
-        margin: 100px;
-    }
+        }
+    .container4{
+        
+        width: 90%;
+        margin: 113px auto;
+        font-size: 25px;
+        background-color: rgba(255, 255, 255, 0.75);
+        padding: 30px;
+        border-radius: 16px;
+        }
     .container3{
         width: 500px;
         height: 170px;
@@ -29,85 +48,93 @@
         text-align: center;
         font-size: 20px;
         margin: 100px;
-    }
+        }
     .container2{
         width: 650px;
         height: 70px;
         background-color: rgb(230, 238, 237);
-        margin: 100px auto;
+        margin: 0 auto;
         text-align: center;
         text-size-adjust: auto;
-    }
+        }
     .container1{
         width: 680px;
         height: 510px;
         background-color: rgb(167, 191, 212);
-        margin: 30px auto;
+        margin: 0 auto;
         text-align: center;
-    }
+        }
     h1{
         color: #006373;
         font-family:'Trebuchet MS', serif;
-    }
+        }
     h2{
       color: #0c0333;
       font-family:'Trebuchet MS', serif;
     }
+    h3{
+      color: #0c0333;
+      font-family:'Trebuchet MS', serif;
+        }
+    h4{
+      color: #0c0333;
+      font-family:'Trebuchet MS', serif;
+        }
+    li{
+      color: #0c0333;
+      font-family:'Trebuchet MS', serif;
+        }
     p{
       color: #0c0333;
       font-family:'Trebuchet MS', serif;
-    }
+        }
     .brand {
         display: flex;
-        align-items: center; /* vertically center items */
-        padding: 20px
-    }
+        align-items: center;
+        padding: 30px;
+        }
     .title{
         text-align: center;
         font-size: 40px;
         font-family:'Trebuchet MS', serif;
-    }
+        }
     .logo {
-    width: 150px;
+    width: 110px;
     height: auto;
-    margin-right: 10px; /* space between logo and text */
-    }
+    margin-right: 10px;
+        }
     .name {
     font-size: 64px;
     font-weight: bold;
     font-family:'Trebuchet MS', serif;
-    }
+        }
     .flex-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     
-    }
-    .dropbtn {
-    background-color: #047baa;
-    color: white;
-    padding: 30px;
-    font-size: 16px;
-    border: none;
-    width: 200px;
-    height: 130px;
-    }
 
+    
+        }
     .dropbtn {
-    background-color: #047baa;
-    color: white;
-    padding: 30px;
-    font-size: 16px;
-    border: none;
-    width: 200px;
-    height: 130px;
-    }
+        background-color: #047baa;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        min-width: 200px;
+        height: 50px;
+        margin: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        }
 
     .dropbtn:hover {background-color: #3e538e;}
 
     .dropdown {
     position: relative;
     display: inline-block;
-    }
+        }
 
     .dropdown-content {
     display: none;
@@ -116,33 +143,72 @@
     min-width: 400px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    }
+        }
 
     .dropdown-content a {
     color: black;
     padding: 30px 16px;
     text-decoration: none;
     display: block;
-    }
+        }
 
     .dropdown-content a:hover {background-color: #ddd;}
 
     .dropdown:hover .dropdown-content {display: block;}
 
     .dropdown:hover .dropbtn {background-color: #3e538e;}
+
+    #site-footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        
+        width: 100%;        
+        margin-top: 40px;   
+        margin-bottom: 0px;
+    }
+    .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+    margin-top: 30px;
+}
+
+.round-btn {
+    background-color: #047baa;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    border-radius: 999px; /* fully rounded */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.round-btn:hover {
+    background-color: #3e538e;
+    transform: translateY(-2px);
+}
     </style>
-    
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="box" style="display: flex; justify-content: left;">
+        <div class="box" style="display: flex; justify-content: flex-start; align-items: center; padding: 0 20px;">
             <div class="brand">
-                <img src="../../media/chimoarg.gif" alt="Logo" class="logo" width="80" height="80">
-                <span class="name">Chimoarg</span>
+                <a href="../../index.html">
+                    <img src="../../media/CHIMOARG.png" alt="Logo" class="logo">
+                </a>
             </div>
 
             
             <button class="dropbtn" onclick="window.location.href='../../index.html'">Homepage</button>
+            <button class="dropbtn" onclick="window.location.href='../ChemQforum.html'">Forum</button>
             
 
         
@@ -150,11 +216,10 @@
             <div class="dropdown">
             <button class="dropbtn">More Articles:</button>
                 <div class="dropdown-content">
-                <a href="#">Elements and The Periodic Table</a>
-                <a href="#">Diagrams and Names</a>
-                <a href="#">Geometry and Bonding Theories</a>
-                <a href="#">Chemical Reactions</a>
-                <a href="#">Stochiometry</a>
+                <a href="ElementsArticle/ElementsAnIntroduction.html">Elements and The Periodic Table</a>
+                <a href="MolecularTheoriesGeometryandBonding.html">Geometry and Bonding Theories</a>
+                <a href="ChemicalReactionsArticle/ChemicalReactions.html">Chemical Reactions</a>
+                <a href="Stoichiometry.html">Stoichiometry</a>
                 </div>
             </div>
 
@@ -162,16 +227,177 @@
             <button class="dropbtn">More Practice Exercises:</button>
                 <div class="dropdown-content">
                 <a href="ElementsArticle/ElementsPracticeExercise.html">Elements, The Periodic Table and Trends</a>
-                <a href="#">Respresenting Molecules</a>
+                <a href="#">Representing Molecules</a>
                 <a href="#">Geometry and Bonding Theories</a>
                 <a href="#">Chemical Reactions</a>
-                <a href="#">Stochiometry</a>
+                <a href="#">Stoichiometry</a>
                 </div>
+            </div>
+        
+        </div>
+
+        <div class="title">
+        <h1>Molecular Theories: Geometry and Bonding</h1>
+        </div>
+    
+
+    <div class="flex-container">
+        <div class="container">
+            <div class="container4">
+                <article>
+
+                    <section>
+                        <h2>Intermolecular Forces of Attraction (IMFA)</h2>
+                        <p>Intermolecular Forces of Attraction are the forces in molecule bonds that hold them together. There are many types, with the most well-known being Hydrogen bonds, Ion-Dipole, Ion-Induced, and Van der Waals forces (Keesom/Dipole-Dipole, Debye/Dipole-Induced, London-Dispersion).</p>
+
+                        <h3>Hydrogen Bonds</h3>
+                        <p>Hydrogen (H) bonds with Oxygen (O), Nitrogen (N), or Fluoride (F) - Because of the close proximity between atoms, they tend to be very close together.</p>
+                        <p><strong>Examples:</strong> H₂O (water), HF (hydrogen fluoride), C₂H₅OH (ethanol), NH₃ (ammonia), etc.</p>
+
+                        <h3>Ion-Dipole Forces</h3>
+                        <p>Ion + Polar Element - The ion attracts the polar molecule.</p>
+                        <p><strong>Examples:</strong> NaCl (salt), HCl (hydrochloric acid), HF (hydrogen fluoride), etc.</p>
+
+                        <h3>Ion-Induced Dipole Forces</h3>
+                        <p>Ion + Non-polar Element - The ion disrupts the non-polar element's electron cloud. Stronger than Dipole-Induced forces because ions have stronger charges compared to polar molecules.</p>
+                        <p><strong>Examples:</strong> HbH⁺ + O₂ → HbO₂ + H⁺ (oxygen transport in hemoglobin), NO₃⁻ + I₂ (nitrate & iodine), etc.</p>
+
+                        <h3>Dipole-Dipole Forces</h3>
+                        <p>Polar Element + Polar Element - Like magnets, opposite sides attract.</p>
+                        <p><strong>Examples:</strong> HCl (hydrochloric acid), H₂O (water), SO₂ (sulfur dioxide), HF (hydrogen fluoride), etc.</p>
+
+                        <h3>Dipole-Induced Dipole Forces</h3>
+                        <p>Polar Element + Non-Polar Element - The polar element disrupts the non-polar element's electron cloud.</p>
+                        <p><strong>Examples:</strong> H₂O + I₂ (water + iodine), H₂O + O₂ (water + oxygen), HCl + Xe₂ (hydrochloric acid + xenon), etc.</p>
+
+                        <h3>London-Dispersion Forces</h3>
+                        <p>Fluctuating Dipole + Induced Dipole - All atoms have dipole moments, they're just not permanent. Random fluctuations in electron density cause this to happen.</p>
+                        <p><strong>Examples:</strong> He, Ne, Ar, Kr (noble gases), F₂, Cl₂, Br₂, I₂ (diatomic halogens), O₂, H₂ (atmospheric gases), etc.</p>
+                    </section>
+
+                    <section>
+                        <h2>Summary of Intermolecular Forces</h2>
+                        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <tr style="background-color: #f2f2f2;">
+                                <th style="padding: 10px; text-align: left;">Force Type</th>
+                                <th style="padding: 10px; text-align: left;">Description</th>
+                                <th style="padding: 10px; text-align: left;">Energy (kJ/mol)</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px;"><strong>Hydrogen Bonds</strong></td>
+                                <td style="padding: 10px;">H bonds with O, N, or F - very close atomic proximity</td>
+                                <td style="padding: 10px;">10-40</td>
+                            </tr>
+                            <tr style="background-color: #f9f9f9;">
+                                <td style="padding: 10px;"><strong>Ion-Dipole</strong></td>
+                                <td style="padding: 10px;">Ion + Polar Element attraction</td>
+                                <td style="padding: 10px;">40-600</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px;"><strong>Ion-Induced Dipole</strong></td>
+                                <td style="padding: 10px;">Ion disrupts non-polar element's electron cloud</td>
+                                <td style="padding: 10px;">3-15</td>
+                            </tr>
+                            <tr style="background-color: #f9f9f9;">
+                                <td style="padding: 10px;"><strong>Dipole-Dipole</strong></td>
+                                <td style="padding: 10px;">Polar Element + Polar Element (magnetic attraction)</td>
+                                <td style="padding: 10px;">5-25</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px;"><strong>Dipole-Induced Dipole</strong></td>
+                                <td style="padding: 10px;">Polar element disrupts non-polar element's electron cloud</td>
+                                <td style="padding: 10px;">0.5-2</td>
+                            </tr>
+                            <tr style="background-color: #f9f9f9;">
+                                <td style="padding: 10px;"><strong>London-Dispersion</strong></td>
+                                <td style="padding: 10px;">Fluctuating dipole + induced dipole (electron density fluctuations)</td>
+                                <td style="padding: 10px;">0.05-40</td>
+                            </tr>
+                        </table>
+                    </section>
+
+                    <section>
+                        <h2>Molecular Orbital Theory</h2>
+                        <p>Molecular Orbital Theory puts an orbital around the whole molecule. The theory states that instead of electrons being connected to individual atoms, they follow a shape based on what the atomic nuclei do. Linear Combinations of Atomic Orbitals (LCAO) gives these shapes names. MO Theory and VB Theory stand side by side as founding fathers of quantum chemistry.</p>
+                    </section>
+
+
+                    <section>
+                        <h2>Valence Bond Theory (VBT)</h2>
+                        <p>The Valence Bond Theory puts an orbital in the atom and connects them into the web of chemical bonds in a molecule. If these bonds have overlapping orbitals, they are called Sigma-Pi bonds:</p>
+                        <ul>
+                            <li><strong>Sigma bonds</strong> = Two orbitals / one pair</li>
+                            <li><strong>Pi bonds</strong> = 3+ orbitals / two+ pairs</li>
+                        </ul>
+
+                        <p>Consider H₂ for simplicity. In VBT, the two spherical 1s orbitals overlap and contain two electrons:</p>
+                        <img src="../../../media/{B70B3BFA-7A0C-48EF-8B01-D0A48C3CD2CF}.png" alt="H2 molecule in VBT" width="400px" height="200px">
+
+                        <p>How close are these two nuclei? If they're too far apart, they don't overlap, so no bond forms. Too close, and they become too unstable. As the two hydrogen atoms move closer together, their energy generally decreases, yet their repulsive interaction increases. This is graphed as:</p>
+                        <img src="../../../media/{0A1EE3ED-80E2-4134-B6DB-234CFE32557E}.png" alt="Energy graph of H2 molecule" width="400px" height="200px">
+
+                        <p>This helps determine molecular structures along with more refined theories (VSEPR, Hybridization) to accurately define them in cases where VBT alone can't explain them. Because the theory is localized to the atoms involved, it's easier to visualize chemical reactions, breaking bonds, and electron movement.</p>
+
+                        <p>VBT also helps determine magnetic properties and stability of complex compounds using the hybridization of the central metal ion along with molecular structure. VBT explains covalent bonding and its properties beyond just structure, giving reason to why atoms bond in the first place.</p>
+                    </section>
+
+                    <section>
+                        <h2>Valence Shell Electron Pair Repulsion (VSEPR) Theory</h2>
+                        <p>The Valence Shell Electron Pair Repulsion Theory models the geometrical structure of a molecule depending on the amount of Valence Shell Electron Bond Pairs along its atoms. The model assumes these electron pairs arrange themselves to minimize repulsion effects for stability.</p>
+
+                        <p>Finding molecular geometry is important because it determines physical, chemical, and biological activity. How do you find molecular geometry using VSEPR Theory?</p>
+
+                        <ol>
+                            <li>Draw the Lewis Structure</li>
+                            <li>Get the steric number (sum of bonded atoms and lone pairs, or electron regions)</li>
+                            <li>Space the pairs/regions as far apart as possible for least repulsion (this is why bond angles are useful)</li>
+                            <li>Use the steric number to find the base geometry via the AXE method</li>
+                        </ol>
+
+                        <img src="../../../media/AXe.png" alt="VSEPR chart" width="400px" height="300px">
+
+                        <p>The steric number determines the molecular geometry.</p>
+                    </section>
+
+                    <section>
+                        <h2>Orbital Hybridization</h2>
+                        <p>The Valence Bond and VSEPR Theories alone can't correctly explain every molecular geometry phenomenon. Let's use Methane and its valence electron configuration for the central carbon atom:</p>
+
+                        <img src="../../../media/2Something.png" alt="Valence electron configuration of carbon" width="400px" height="200px">
+
+                        <p>What's wrong with this? The carbon atom forms four bonds, yet only two half-filled p orbitals can actually bond. This is where orbital hybridization comes in. The four valence orbitals of carbon combine into hybrid orbitals, specifically the sp³ orbital.</p>
+
+                        <p>The orbitals look disproportionate because they're partially composed of p orbitals, giving them an oblong shape. However, the lobes differ in size because the bigger lobe is directed toward the corners of a tetrahedron. Due to VSEPR Theory, these four orbitals arrange as far apart as possible, forming a tetrahedron that makes every bond in Methane geometrically balanced:</p>
+
+                        <img src="../../../media/METHANETETRA.png" alt="Methane molecule" width="400px" height="200px">
+
+                        <p>In 2D representation, it looks like:</p>
+                        <img src="../../../media/sticknwedge.png" alt="Methane molecule 2D representation" width="400px" height="200px">
+
+                        <p>The lines and wedges show where bonds point in 3D space.</p>
+
+                        <h3>Sigma vs Pi Bonds</h3>
+                        <p>If two orbitals overlap, they form pi bonds. The presence of pi bonds 'locks' atoms in the same plane, making their configuration unchangeable. Sigma bonds (between 3+ overlapping orbitals) can twist into any shape, conformation, or configuration.</p>
+                    </section>
+
+                </article>
+                <div class="container4">
+                    <h3>References:</h3>
+                    <p>References would be added here based on the sources used for this content.</p>
+                </div>
+            </div>
+            <div id="site-footer">
+                © 2025-2026 Chimoarg | 
+                <a href="../../index.html" style="color: white; text-decoration: none;">Homepage</a> | 
+                <a href="../ChemQforum.html" style="color: white; text-decoration: none;">Forum</a><br>
+                Contact us: 
+                <a href="mailto:b2029agnavarro@pshs.edu.ph">b2029agnavarro@pshs.edu.ph</a> | 
+                <a href="mailto:b2029shsgutierrez@pshs.edu.ph">b2029shsgutierrez@pshs.edu.ph</a>
             </div>
         </div>
         
-        </div>
-
-
-        
+    </div>
+    
+    
     </body>
+</html>
